@@ -1,0 +1,162 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhwirj0h43sua"]
+
+[ext_resource type="Script" uid="uid://bnbc1sbbbixvv" path="res://scripts/main.gd" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://dwfldccfwv01p" path="res://images/rouge.jpg" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://dpp3nbi6jbfsm" path="res://images/snep.jpg" id="3_h2yge"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7dm0k"]
+font_size = 90
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ig7tw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_right = 1272.0
+offset_bottom = 720.0
+color = Color(0.32544088, 0.3254409, 0.32544088, 1)
+
+[node name="Clicker" type="Button" parent="."]
+offset_left = 496.0
+offset_top = 128.0
+offset_right = 784.0
+offset_bottom = 264.0
+text = "Click me! please!"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1280.0
+offset_bottom = 124.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_7dm0k")
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 1
+
+[node name="Shop" type="Button" parent="."]
+offset_left = 8.0
+offset_top = 624.0
+offset_right = 176.0
+offset_bottom = 712.0
+text = "Shop"
+metadata/_edit_use_anchors_ = true
+
+[node name="Clicker2" type="Button" parent="."]
+visible = false
+offset_left = 416.0
+offset_top = 168.0
+offset_right = 488.0
+offset_bottom = 224.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Clicker2"]
+layout_mode = 0
+offset_top = -24.0
+offset_right = 72.0
+offset_bottom = 77.0
+text = "x3
+
+
+Deactive"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="YeenNode" type="Node2D" parent="."]
+visible = false
+position = Vector2(-48, 0)
+
+[node name="Yeen" type="Button" parent="YeenNode"]
+visible = false
+offset_left = 240.0
+offset_top = 552.0
+offset_right = 312.0
+offset_bottom = 608.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="YeenNode/Yeen"]
+layout_mode = 0
+offset_top = -24.0
+offset_right = 72.0
+offset_bottom = 77.0
+text = "x3
+
+
+Deactive"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Rouge" type="Sprite2D" parent="YeenNode"]
+self_modulate = Color(0.78352344, 0.7835234, 0.7835234, 1)
+position = Vector2(448.5, 575.5)
+scale = Vector2(0.7285714, 0.7285714)
+texture = ExtResource("2_0xm2m")
+
+[node name="Rouge2" type="Sprite2D" parent="YeenNode"]
+visible = false
+self_modulate = Color(0.78352344, 0.7835234, 0.7835234, 1)
+position = Vector2(512, 608)
+scale = Vector2(0.7285714, 0.7285714)
+texture = ExtResource("2_0xm2m")
+
+[node name="Label" type="Label" parent="YeenNode"]
+offset_left = 320.0
+offset_top = 424.0
+offset_right = 576.0
+offset_bottom = 447.0
+text = "+1 / 120ticks"
+horizontal_alignment = 1
+
+[node name="SnepNode" type="Node2D" parent="."]
+visible = false
+position = Vector2(360, 0)
+
+[node name="Rouge" type="Sprite2D" parent="SnepNode"]
+position = Vector2(447.99997, 576)
+scale = Vector2(0.25000003, 0.31257626)
+texture = ExtResource("3_h2yge")
+
+[node name="Rouge2" type="Sprite2D" parent="SnepNode"]
+visible = false
+position = Vector2(487.99997, 615.99994)
+scale = Vector2(0.25000003, 0.31257626)
+texture = ExtResource("3_h2yge")
+
+[node name="Snep" type="Button" parent="SnepNode"]
+visible = false
+offset_left = 240.0
+offset_top = 552.0
+offset_right = 312.0
+offset_bottom = 608.0
+toggle_mode = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="SnepNode/Snep"]
+layout_mode = 0
+offset_top = -24.0
+offset_right = 72.0
+offset_bottom = 77.0
+text = "x3
+
+
+Deactive"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="SnepNode"]
+offset_left = 320.0
+offset_top = 424.0
+offset_right = 576.0
+offset_bottom = 447.0
+text = "+2 / 180ticks"
+horizontal_alignment = 1
+
+[connection signal="button_down" from="Clicker" to="." method="_on_clicker_button_down"]
+[connection signal="button_up" from="Clicker" to="." method="_on_clicker_button_up"]
+[connection signal="pressed" from="Clicker" to="." method="_on_clicker_pressed"]
+[connection signal="pressed" from="Shop" to="." method="_on_shop_pressed"]
+[connection signal="pressed" from="Clicker2" to="." method="_on_clicker_2_pressed"]
+[connection signal="pressed" from="YeenNode/Yeen" to="." method="_on_yeen_pressed"]
+[connection signal="pressed" from="SnepNode/Snep" to="." method="_on_snep_pressed"]
